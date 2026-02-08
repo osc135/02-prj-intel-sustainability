@@ -6,6 +6,15 @@ header {
   color: white;
 }
 
+/* Make the whole page a simple flex layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 /* Flexbox container for responsive layout */
 header div {
   max-width: 800px;
@@ -57,4 +66,11 @@ header p {
   color: #b0b0b0;
   font-size: 18px;
   margin: 10px 0;
+}
+
+/* Special styling for the 1968 card only */
+.year-1968 {
+  background-color: #f3f8ff;
+  border-left: 6px solid #00C7FD;
+  padding: 20px;
 }
