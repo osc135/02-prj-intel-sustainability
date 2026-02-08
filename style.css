@@ -8,29 +8,48 @@ header {
   align-items: center;
   justify-content: center;
   /* Add space inside the header */
-  padding: 40px 20px;
+  padding: 60px 20px;
   /* Add a subtle cyan accent line at the bottom */
   border-bottom: 3px solid #00C7FD;
 }
 
 /* Make the whole page a simple flex layout */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #0a1428 0%, #1a3a52 100%);
   min-height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
 }
 
-/* Timeline cards section */
+/* Style body scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #00C7FD;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #00a8d6;
+}
+
+/* Timeline cards section - Vertical layout */
 section {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 20px;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -70,14 +89,19 @@ header p {
 /* Hide paragraph text by default with smooth fade */
 .card p {
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
   margin: 15px 0 0 0;
   color: #e0e0e0;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
 }
 
 /* Show paragraph text when card is hovered */
 .card:hover p {
   opacity: 1;
+  transform: translateY(0);
 }
 
 /* Card layout with flexbox */
@@ -85,47 +109,63 @@ header p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   background-color: #2d5a7b;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 25px;
-  width: 280px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #3d6a8b;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 199, 253, 0.2);
+  transform: translateY(-6px);
+  box-shadow:
+    0 10px 30px rgba(0, 199, 253, 0.25),
+    0 0 18px rgba(0, 199, 253, 0.2);
   border-color: #00C7FD;
 }
 
 /* Card headings */
 .card h2 {
   color: #00C7FD;
-  font-size: 32px;
-  margin: 0 0 5px 0;
+  font-size: 36px;
+  margin: 0 0 8px 0;
   font-weight: bold;
+  text-align: center;
+  transition: text-shadow 0.35s ease;
+}
+
+.card:hover h2 {
+  text-shadow: 0 0 12px rgba(0, 199, 253, 0.7);
 }
 
 .card h3 {
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   margin: 0 0 15px 0;
   font-weight: 600;
+  text-align: center;
 }
 
 /* Style card images */
 .card img {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   margin: 15px 0;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  filter: brightness(0.95);
 }
 
 /* Subtle zoom effect on image when card is hovered */
 .card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 18px rgba(0, 199, 253, 0.25);
 }
