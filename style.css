@@ -1,38 +1,5 @@
 /* Header styling - Intel aesthetic */
 header {
-  background-color: #000;
-  border-bottom: 4px solid #00C7FD;
-  padding: 40px 20px;
-  color: white;
-}
-
-/* Make the whole page a simple flex layout */
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Flexbox container for responsive layout */
-header div {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Style the logo */
-header img {
-  width: 150px;
-  height: auto;
-  margin-bottom: 30px;
-}
-
-header {
   /* Dark blue gradient that matches Intel's modern look */
   background: linear-gradient(135deg, #0a1428 0%, #1a3a52 100%);
   /* Center content vertically and horizontally */
@@ -44,6 +11,37 @@ header {
   padding: 40px 20px;
   /* Add a subtle cyan accent line at the bottom */
   border-bottom: 3px solid #00C7FD;
+}
+
+/* Make the whole page a simple flex layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Timeline cards section */
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Flexbox container for responsive layout */
+header div {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* Style the logo */
@@ -70,7 +68,67 @@ header p {
 
 /* Special styling for the 1968 card only */
 .year-1968 {
-  background-color: #f3f8ff;
-  border-left: 6px solid #00C7FD;
-  padding: 20px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #f3f8ff 100%);
+  border-left: 4px solid #00C7FD;
+}
+
+/* Hide paragraph text by default with smooth fade */
+.card p {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin: 15px 0 0 0;
+}
+
+/* Show paragraph text when card is hovered */
+.card:hover p {
+  opacity: 1;
+}
+
+/* Card layout with flexbox */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 199, 253, 0.2);
+  border-color: #00C7FD;
+}
+
+/* Card headings */
+.card h2 {
+  color: #00C7FD;
+  font-size: 32px;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.card h3 {
+  color: #0a1428;
+  font-size: 18px;
+  margin: 0 0 15px 0;
+}
+
+/* Style card images */
+.card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Subtle zoom effect on image when card is hovered */
+.card:hover img {
+  transform: scale(1.05);
 }
