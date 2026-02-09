@@ -1,3 +1,10 @@
+/* Universal box-sizing for all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* Header styling - Intel aesthetic */
 header {
   /* Dark blue gradient that matches Intel's modern look */
@@ -276,17 +283,18 @@ header p {
     margin-bottom: 20px;
   }
 
-  /* Adjust section padding */
+  /* Adjust section padding - ensure cards stay centered */
   section {
     gap: 30px;
-    padding: 60px 20px;
+    padding: 60px 15px;
+    align-items: center;
   }
 
-  /* Make cards wider on mobile */
+  /* Cards should be centered with comfortable margins */
   .card {
-    max-width: 100%;
+    width: calc(100% - 30px);
+    max-width: 500px;
     padding: 25px;
-    margin: 0 auto;
   }
 
   .card h2 {
@@ -309,25 +317,30 @@ header p {
 /* Small mobile screens */
 @media (max-width: 480px) {
   header {
-    padding: 50px 15px;
+    padding: 50px 20px;
   }
 
   header h1 {
     font-size: 32px;
-    margin: 15px 0 10px 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
 
   header p {
     font-size: 15px;
-    margin: 10px 0 0 0;
+    margin-top: 10px;
   }
 
+  /* More padding on sides for breathing room */
   section {
     gap: 25px;
     padding: 40px 15px;
   }
 
+  /* Cards centered with good spacing on small phones */
   .card {
+    width: calc(100% - 20px);
+    max-width: 500px;
     padding: 20px;
     border-radius: 12px;
   }
@@ -338,11 +351,11 @@ header p {
 
   .card h3 {
     font-size: 16px;
-    margin: 0 0 12px 0;
+    margin-bottom: 12px;
   }
 
   footer {
-    padding: 30px 15px;
+    padding: 30px 20px;
     font-size: 13px;
   }
 }
